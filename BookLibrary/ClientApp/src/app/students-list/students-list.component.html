@@ -1,0 +1,36 @@
+<dx-box direction="col" width="100%" height="100%">
+  <dxi-item [baseSize]="37">
+      <dx-box direction="row" width="100%" height="100%">
+          <dxi-item [ratio]="1">
+              <div class="dx-fieldset-header">Students list</div>
+          </dxi-item>
+          <!-- <dxi-item [ratio]="1">
+              <dx-toolbar [elementAttr]="{class: 'generalBackground' }">
+                  <dxi-item location="after" widget="dxButton" [options]="{ stylingMode:'contained', type:'default', text: '', hint:'Refresh list', icon:'refresh', onClick:''}"> </dxi-item>
+                  <dxi-item location="after" widget="dxButton" [options]="{ stylingMode:'contained', type:'default', text: '', hint:'Add new order', icon:'add', onClick:''}"></dxi-item>
+                  <dxi-item location="after" widget="dxButton" [options]="{ stylingMode:'contained', type:'default', text: '', hint:'Upload voyage file', icon:'upload', onClick:''}"></dxi-item>
+              </dx-toolbar>
+          </dxi-item> -->
+      </dx-box>
+  </dxi-item>
+  <dxi-item [ratio]="1">
+      <div>
+          <dx-data-grid #studentsList [dataSource]="students" height="100%" keyExpr="uid" [showColumnLines]="true" [showRowLines]="true" [showBorders]="true" 
+            [rowAlternationEnabled]="true" [columnAutoWidth]="true" [allowColumnResizing]="true"
+            (onRowUpdating)="handleRowUpdating($event)" (onRowInserting)="handleRowInserting($event)" (onRowRemoving)="handleRowRemoving($event)">
+            <dxo-selection mode="single"></dxo-selection>
+            <dxo-sorting mode="single"></dxo-sorting>
+            <dxo-filter-row [visible]="true"></dxo-filter-row>
+            <dxo-editing [allowUpdating]="true" [allowAdding]="true" [allowDeleting]="true" [useIcons]="true" mode="row"></dxo-editing>
+
+            <dxi-column dataField="code" caption="Code"></dxi-column>
+            <dxi-column dataField="firstName" caption="First Name" dataType="string"></dxi-column>
+            <dxi-column dataField="lastName" caption="Last Name" dataType="string"></dxi-column>
+            <dxi-column dataField="classmate" caption="Classmate"></dxi-column>
+            <dxi-column dataField="gender" caption="Gender"></dxi-column>
+            <dxi-column dataField="dateOfBirth" caption="Date of birth" dataType="date" [format]="dateFormat"></dxi-column>
+            <dxi-column dataField="contact" caption="Contact"></dxi-column>
+          </dx-data-grid>
+      </div>
+  </dxi-item>
+</dx-box>
